@@ -1,3 +1,9 @@
+libfastcdr (0.2.4-2) unstable; urgency=medium
+
+  * Added version number to development package.
+
+ -- Esteve Fernandez <esteve@osrfoundation.org>  Tue, 25 Nov 2014 17:12:10 -0800
+
 libfastcdr (0.2.4-1) unstable; urgency=low
 
   * Initial release.
