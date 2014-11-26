@@ -1,5 +1,5 @@
 libfastcdr (0.2.4-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release.
 
  -- Esteve Fernandez <esteve@osrfoundation.org>  Mon, 24 Nov 2014 13:15:22 -0800
