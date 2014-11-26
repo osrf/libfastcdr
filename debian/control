@@ -8,7 +8,7 @@ Homepage: https://github.com/eProsima/FastCDR
 #Vcs-Git: git://git.debian.org/collab-maint/libfastcdr.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/libfastcdr.git;a=summary
 
-Package: libfastcdr-dev
+Package: libfastcdr0-dev
 Section: libdevel
 Architecture: any
 Depends: libfastcdr0 (= ${binary:Version})
