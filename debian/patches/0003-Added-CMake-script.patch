@@ -1,0 +1,43 @@
+From: Esteve Fernandez <esteve@osrfoundation.org>
+Date: Wed, 26 Nov 2014 17:39:35 -0800
+Subject: Added CMake script
+
+---
+ fastcdr.cmake | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+ create mode 100644 fastcdr.cmake
+
+diff --git a/fastcdr.cmake b/fastcdr.cmake
+new file mode 100644
+index 0000000..921861b
+--- /dev/null
++++ b/fastcdr.cmake
+@@ -0,0 +1,28 @@
++# find_package(fastcdr) will set the following variable:
++#
++# fastcdr_FOUND
++# fastcdr_INCLUDE_DIRS
++# fastcdr_LIBRARIES
++# fastcdr_DEFINITIONS
++
++find_package(PkgConfig REQUIRED)
++pkg_check_modules(PC_LIBFASTCDR QUIET libfastcdr)
++set(fastcdr_DEFINITIONS ${PC_LIBFASTCDR_CFLAGS_OTHER})
++
++find_path(fastcdr_INCLUDE_DIR ndds_version.h
++          HINTS ${PC_LIBFASTCDR_INCLUDEDIR} ${PC_LIBFASTCDR_INCLUDE_DIRS}
++          PATH_SUFFIXES ndds)
++
++find_library(fastcdr_LIBRARY NAMES fastcdr libfastcdr
++             HINTS ${PC_LIBFASTCDR_LIBDIR} ${PC_LIBFASTCDR_LIBRARY_DIRS} )
++
++set(fastcdr_LIBRARIES ${fastcdr_LIBRARY} )
++set(fastcdr_INCLUDE_DIRS ${fastcdr_INCLUDE_DIR} )
++
++include(FindPackageHandleStandardArgs)
++# handle the QUIETLY and REQUIRED arguments and set fastcdr_FOUND to TRUE
++# if all listed variables are TRUE
++find_package_handle_standard_args(fastcdr DEFAULT_MSG
++                                  fastcdr_LIBRARY fastcdr_INCLUDE_DIR)
++
++mark_as_advanced(fastcdr_INCLUDE_DIR fastcdr_LIBRARY)
