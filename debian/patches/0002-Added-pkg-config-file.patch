@@ -1,0 +1,50 @@
+From: Esteve Fernandez <esteve@osrfoundation.org>
+Date: Wed, 26 Nov 2014 17:11:27 -0800
+Subject: Added pkg-config file
+
+---
+ Makefile.am      |  3 +++
+ configure.ac     |  1 +
+ libfastcdr.pc.in | 10 ++++++++++
+ 3 files changed, 14 insertions(+)
+ create mode 100644 libfastcdr.pc.in
+
+diff --git a/Makefile.am b/Makefile.am
+index 9100adf..d0570fa 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -16,3 +16,6 @@ AM_CPPFLAGS = -std=c++0x -DFASTCDR_SOURCE -Iinclude
+ 
+ fastcdr_licenciasdir = $(datadir)/doc/fastcdr
+ fastcdr_licencias_DATA = FASTCDR_LIBRARY_LICENSE.txt LGPLv3_LICENSE.txt
++
++pkgconfigdir = $(libdir)/pkgconfig
++pkgconfig_DATA = libfastcdr.pc
+diff --git a/configure.ac b/configure.ac
+index d8b1fad..ec43b11 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -5,6 +5,7 @@ AC_PROG_CXX
+ LT_INIT
+ AC_CONFIG_MACRO_DIR([m4])
+ AC_CONFIG_FILES([Makefile include/Makefile])
++AC_CONFIG_FILES([libfastcdr.pc])
+ 
+ # Check endianess
+ AC_C_BIGENDIAN(
+diff --git a/libfastcdr.pc.in b/libfastcdr.pc.in
+new file mode 100644
+index 0000000..37deb98
+--- /dev/null
++++ b/libfastcdr.pc.in
+@@ -0,0 +1,10 @@
++prefix=@prefix@
++exec_prefix=@exec_prefix@
++libdir=@libdir@
++includedir=@includedir@
++
++Name: libfastcdr
++Description: eProsima FastCDR library
++Version: @VERSION@
++Libs: -L${libdir} -lfastcdr
++Cflags: -I${includedir}
