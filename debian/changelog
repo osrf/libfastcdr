@@ -1,3 +1,9 @@
+libfastcdr (0.2.4-3) unstable; urgency=medium
+
+  * Added pkg-config file.
+
+ -- Esteve Fernandez <esteve@osrfoundation.org>  Wed, 26 Nov 2014 17:20:16 -0800
+
 libfastcdr (0.2.4-2) unstable; urgency=medium
 
   * Added version number to development package.
